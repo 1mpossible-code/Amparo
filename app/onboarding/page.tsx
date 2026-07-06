@@ -6,13 +6,29 @@ import { OnboardingFlow } from '@/app/_components/onboarding-flow';
 
 const INTRO_DURATION_MS = 3000;
 const INTRO_FADE_MS = 500;
+const INTRO_SEEN_KEY = 'amparo:intro-seen';
 
 export default function OnboardingPage() {
-  const [showIntro, setShowIntro] = useState(true);
+  const [showIntro, setShowIntro] = useState(false);
   const [introFading, setIntroFading] = useState(false);
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
+    let hasSeenIntro = false;
+
+    try {
+      hasSeenIntro = window.localStorage.getItem(INTRO_SEEN_KEY) === 'true';
+      if (!hasSeenIntro) window.localStorage.setItem(INTRO_SEEN_KEY, 'true');
+    } catch (error) {
+      console.warn('Unable to persist intro screen state.', error);
+    }
+
+    if (hasSeenIntro) {
+      const readyTimer = window.setTimeout(() => setReady(true), 0);
+      return () => window.clearTimeout(readyTimer);
+    }
+
+    const startTimer = window.setTimeout(() => setShowIntro(true), 0);
     const fadeTimer = window.setTimeout(() => setIntroFading(true), INTRO_DURATION_MS - INTRO_FADE_MS);
     const doneTimer = window.setTimeout(() => {
       setShowIntro(false);
@@ -20,6 +36,7 @@ export default function OnboardingPage() {
     }, INTRO_DURATION_MS);
 
     return () => {
+      window.clearTimeout(startTimer);
       window.clearTimeout(fadeTimer);
       window.clearTimeout(doneTimer);
     };
