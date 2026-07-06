@@ -75,8 +75,11 @@ export function StreamingMarkdownPreview({ content, complete = false, compact = 
   useEffect(() => {
     if (committedBlocks.length <= revealedCount) return;
     const newKeys = committedBlocks.slice(revealedCount).map((block, index) => `${revealedCount + index}:${block.slice(0, 24)}`);
-    setAnimatedKeys((current) => [...current, ...newKeys]);
-    setRevealedCount(committedBlocks.length);
+    const timeout = window.setTimeout(() => {
+      setAnimatedKeys((current) => [...current, ...newKeys]);
+      setRevealedCount(committedBlocks.length);
+    }, 0);
+    return () => window.clearTimeout(timeout);
   }, [committedBlocks, revealedCount]);
 
   useEffect(() => {

@@ -575,7 +575,7 @@ export function ModuleWorkspace({ topic, initialStageId }: { topic: CulturalTopi
                 Ask for the next angle
               </h3>
               <p className="mt-2 text-sm leading-6 text-[var(--text-muted)] md:text-base">
-                Ask naturally. We'll suggest three focused follow-ups, and clicking one starts the next note immediately.
+                Ask naturally. We&apos;ll suggest three focused follow-ups, and clicking one starts the next note immediately.
               </p>
 
               <form

@@ -27,7 +27,7 @@ export function PopupPanel({
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end bg-[var(--regal-navy)]/25 p-3 backdrop-blur-sm animate-fade-in md:items-center md:justify-center md:p-6">
+    <div className="fixed inset-0 z-50 flex items-end bg-[var(--overlay)] p-3 backdrop-blur-sm animate-fade-in md:items-center md:justify-center md:p-6">
       <button type="button" aria-label="Close panel" className="absolute inset-0 cursor-default" onClick={onClose} />
 
       <section

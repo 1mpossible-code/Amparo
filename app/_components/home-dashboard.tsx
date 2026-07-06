@@ -188,7 +188,7 @@ function FavoriteShelf({ topic, cards, onUnfollow }: { topic: CulturalTopic; car
                   </h3>
                 </div>
               </div>
-              <div className="flex items-center justify-between gap-3 border-t border-white/10 bg-[var(--regal-navy)] px-5 py-3.5 text-white">
+              <div className="flex items-center justify-between gap-3 border-t border-white/10 bg-[var(--surface-inverse)] px-5 py-3.5 text-[var(--text-inverse)]">
                 <span className="font-serif text-xl font-medium">Open note</span>
                 <span className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20 text-sm">›</span>
               </div>
@@ -274,7 +274,7 @@ function ChatAgentPopup({
       <div className="mt-5 space-y-3">
         {suggestions.length === 0 ? (
           <div className="rounded-2xl border border-dashed border-[var(--border-soft)] bg-[var(--surface-sunken)] p-5 text-sm leading-7 text-[var(--text-muted)]">
-            Ask one specific question and pick a direction — we'll start a fresh module page immediately.
+            Ask one specific question and pick a direction — we&apos;ll start a fresh module page immediately.
           </div>
         ) : (
           suggestions.map((item) => (

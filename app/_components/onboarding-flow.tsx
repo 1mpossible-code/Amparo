@@ -131,7 +131,7 @@ function ProgressSidebar({ currentStep }: { currentStep: number }) {
         </div>
       ) : (
         <div className="mt-3 rounded-2xl border border-dashed border-[var(--border-soft)] p-4 text-sm leading-6 text-[var(--text-muted)]">
-          Final step. Once this looks right, we'll save your profile and start your first guide.
+          Final step. Once this looks right, we&apos;ll save your profile and start your first guide.
         </div>
       )}
     </aside>
@@ -177,7 +177,7 @@ function ChoiceCard({
         <span
           className={`flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-[1.5px] text-[10px] transition-all ${
             selected
-              ? 'border-[var(--regal-navy)] bg-[var(--regal-navy)] text-white'
+              ? 'border-[var(--surface-inverse)] bg-[var(--surface-inverse)] text-[var(--text-inverse)]'
               : 'border-[var(--border-soft)] bg-white'
           }`}
         >

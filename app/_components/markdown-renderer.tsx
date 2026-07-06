@@ -46,7 +46,7 @@ export function MarkdownRenderer({ content, compact = false }: { content: string
             const isBlock = Boolean(className);
             if (isBlock) {
               return (
-                <code className="block overflow-x-auto rounded-xl bg-[var(--regal-navy)]/92 px-4 py-3 font-mono text-sm leading-6 text-[var(--lemon-chiffon)]">
+                <code className="block overflow-x-auto rounded-xl bg-[var(--surface-inverse)] px-4 py-3 font-mono text-sm leading-6 text-[var(--text-inverse)]">
                   {children}
                 </code>
               );
@@ -58,7 +58,7 @@ export function MarkdownRenderer({ content, compact = false }: { content: string
             );
           },
           pre: ({ children }) => (
-            <pre className="my-5 overflow-x-auto rounded-2xl bg-[var(--regal-navy)] p-1">{children}</pre>
+            <pre className="my-5 overflow-x-auto rounded-2xl bg-[var(--surface-inverse)] p-1">{children}</pre>
           ),
           hr: () => <hr className="my-8 border-[var(--border-faint)]" />,
           table: ({ children }) => (
