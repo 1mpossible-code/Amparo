@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Fraunces, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
+const GITHUB_URL = 'https://github.com/1mpossible-code/Amparo';
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -53,7 +55,19 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <footer className="border-t border-[var(--border-faint)] bg-[var(--background)] px-4 py-5 text-center">
+          <a
+            href={GITHUB_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1.5 rounded-full border border-[var(--border-soft)] bg-[var(--surface-card)] px-4 py-2 text-xs font-semibold uppercase tracking-widest text-[var(--text-muted)] transition-all hover:border-[var(--sandy-brown)] hover:text-[var(--regal-navy)]"
+          >
+            GitHub <span aria-hidden>↗</span>
+          </a>
+        </footer>
+      </body>
     </html>
   );
 }
